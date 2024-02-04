@@ -112,17 +112,32 @@ ZMK_UNICODE_SINGLE(trema, N0, N0, A, N8)
                 };
 
                 layer_3 {
-                // ----------------------------------------------------------------------------
+                // -----------------------------------------------------------------------------
                 // | ESC | LSCRL | UMOUS | RSCRL |     |      | BCK  | PTAB | NTAB | FWD |     |
                 // | TAB | LMOUS | DMOUS | RMOUS |     |      | LFT  | DOWN |  UP  | RGT |     |
-                // |     |       | USCRL | DSCRL |     |      | MCLK | LCLK | RCLK |     |     |
+                // |     |       | USCRL | DSCRL |     |      | MCLK | LCLK | RCLK |     | [4] |
                 //               |  ENT  |  GUI  | [1] |      | SPC  | [0]  | BKSP |
 
                         bindings = <
                                 &kp ESC &none &mmv MOVE_UP &none &none                          &kp LG(LBKT) &kp LC(LS(TAB)) &kp RC(TAB) &kp LG(RBKT) &none
                                 &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none
-                                &none &none &none &none &none                                   &mkp MCLK &mkp LCLK &mkp RCLK &none &none
-                                &kp RET &kp LGUI &to 1                                             &kp SPACE &to 0 &kp BSPC
+                                &none &none &none &none &none                                   &mkp MCLK &mkp LCLK &mkp RCLK &none &to 4
+                                &kp RET &kp LGUI &to 1                                          &kp SPACE &to 0 &kp BSPC
+                        >;
+                };
+
+                layer_4 {
+                // -----------------------------------------------------------------------------------
+                // | BC_4 | BC_3 | BC_2 | BC_1 | BC_0 |      | BT_ACLR |        |        |     |     |
+                // |      |      |      |      |      |      | BT_CLR  | BT_NXT | BT_PRV |     |     |
+                // | BD_4 | BD_3 | BD_2 | BD_1 | BD_0 |      |         |        |        |     |     |
+                //               |      |      | [3]  |      |         |  [0]   |        |
+
+                        bindings = <
+                                &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0        &bt BT_CLR_ALL &none &none &none &none
+                                &none &none &none &none &none                                           &bt BT_CLR &bt BT_NXT &bt BT_PRV &none &none
+                                &bt BT_DISC 4 &bt BT_DISC 3 &bt BT_DISC 2 &bt BT_DISC 1 &bt BT_DISC 0   &none &none &none &none &none
+                                &none &none &to 3                                                       &none &to 0 &none
                         >;
                 };
         };
