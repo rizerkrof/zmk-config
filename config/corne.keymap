@@ -34,13 +34,13 @@
                 compatible = "zmk,combos";
                 combo-equal {
                         timeout-ms = <50>;
-                        key-positions = <26 27>;
+                        key-positions = <25 26>;
                         bindings = <&kp EQUAL>;
                         layers = <0>;
                 };
                 combo-minus {
                         timeout-ms = <50>;
-                        key-positions = <27 28>;
+                        key-positions = <26 27>;
                         bindings = <&kp MINUS>;
                         layers = <0>;
                 };
