@@ -112,16 +112,16 @@ ZMK_UNICODE_SINGLE(trema, N0, N0, A, N8)
                 };
 
                 layer_3 {
-                // -------------------------------------      ----------------------------------
-                // | ESC | LSCRL | UMOUS | RSCRL |     |      | BCK  | PTAB | NTAB | FWD |     |
-                // | TAB | LMOUS | DMOUS | RMOUS |     |      | LFT  | DOWN |  UP  | RGT |     |
-                // |     |       | USCRL | DSCRL |     |      | MCLK | LCLK | RCLK |     | [4] |
-                //               |  ENT  |  GUI  | [1] |      | SPC  | [0]  | BKSP |
+                // ---------------------------------------      ----------------------------------
+                // | ESC | LSCRL | UMOUS | RSCRL | USCRL |      | BCK  | PTAB | NTAB | FWD |     |
+                // | TAB | LMOUS | DMOUS | RMOUS | DSCRL |      | LFT  | DOWN |  UP  | RGT |     |
+                // |     |       | CTRL  | SHIFT |  ALT  |      | MCLK | LCLK | RCLK |     | [4] |
+                //               |  ENT  |  GUI  |  [1]  |      | SPC  | [0]  | BKSP |
 
                         bindings = <
                                 &kp ESC &none &mmv MOVE_UP &none &none                          &kp LG(LBKT) &kp LC(LS(TAB)) &kp RC(TAB) &kp LG(RBKT) &none
                                 &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none
-                                &none &none &none &none &none                                   &mkp MCLK &mkp LCLK &mkp RCLK &none &to 4
+                                &none &none &kp LCTRL &kp LSHFT &kp LALT                        &mkp MCLK &mkp LCLK &mkp RCLK &none &to 4
                                 &kp RET &kp LGUI &to 1                                          &kp SPACE &to 0 &kp BSPC
                         >;
                 };
