@@ -76,7 +76,7 @@ ZMK_UNICODE_SINGLE(trema, N0, N0, A, N8)
                         bindings = <
                                 &kp A &kp Z &kp E &kp R &kp T                   &kp Y &kp U &kp I &kp O &kp P   
                                 &kp Q &kp S &hm LALT D &hm LGUI F &kp G         &kp H &hm RGUI J &hm RALT K &kp L &kp M
-                                &kp W &kp X &kp C &kp V &kp B                   &kp N &mt COLON DOT &mt SEMI COMMA &mt EXCL QMARK &mt APOS CARET
+                                &kp W &kp X &kp C &kp V &kp B                   &kp N &mt COLON DOT &mt SEMI COMMA &mt EXCL QMARK &mt CARET APOS
                                 &kp RET &kp LCTRL &to 1                         &kp SPACE &td_caps &kp BSPC
                         >;
                 };
