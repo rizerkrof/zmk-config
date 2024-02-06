@@ -12,7 +12,7 @@
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/international_chars/french.dtsi"
 
-ZMK_UNICODE_SINGLE(trema, N0, N0, A, N8)
+ZMK_UNICODE_SINGLE(dollar, N0, N0, N2, N4)
 
 #define U_MOUSE_MOVE_MAX 2000                     /* <--- New max speed setting (default: 600) */
 #undef MOVE_UP
@@ -113,7 +113,7 @@ ZMK_UNICODE_SINGLE(trema, N0, N0, A, N8)
                 //             | ENT | LSHFT | [2] |      | SPC | [0] | BKSP |
 
                         bindings = <
-                                &kp ESC &kp DQT &kp PIPE &kp LBKT &kp STAR              &kp AMPS &kp RBKT &kp TILDE &kp APOS &trema
+                                &kp ESC &kp DQT &kp PIPE &kp LBKT &kp STAR              &kp AMPS &kp RBKT &kp TILDE &kp APOS &dollar
                                 &kp TAB &fr_e_acute &kp HASH &kp LPAR &kp FSLH          &kp BSLH &kp RPAR &kp AT &kp GRAVE &fr_c_cedilla
                                 &to 3 &fr_e_grave &fr_e_circumflex &kp LBRC &kp LT      &kp GT &kp RBRC &fr_a_circumflex &fr_a_grave &fr_u_grave 
                                 &kp RET &kp LSHFT &to 2                                 &kp SPACE &to 0 &kp BSPC
