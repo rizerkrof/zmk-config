@@ -63,6 +63,12 @@ ZMK_UNICODE_SINGLE(dollar, N0, N0, N2, N4)
                         tapping-term-ms = <200>;
                         bindings = <&sk RSHFT>, <&caps_word>;
                 };
+                td_layers: tap_dance_layers {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&mo 1>, <&mo 2>;
+                };
         };
 
         combos {
@@ -94,29 +100,29 @@ ZMK_UNICODE_SINGLE(dollar, N0, N0, N2, N4)
                 // ------------------------------------      ----------------------------------------
                 // |  A  |  Z  |   E    |  R  |   T   |      |  Y  | U ALT  |   I    | O CTRL |  P  |
                 // |  Q  |  S  |   D    |  F  |   G   |      |  H  |   J    |   K    |   L    |  M  |
-                // |  W  |  X  | C CTRL |  V  | B ALT |      |  N [=] . :  [-] , ;  [_]  ? !  | ' ^ |
-                //             |  ENT   | GUI |  [1]  |      | SPC | RSHFT  |  BKSP  |
+                // |  W  |  X  | C CTRL |  V  | B ALT |      |  N [=] . :  [-] , ;  [_]  ? !  | ' " |
+                //             |  ENT   | GUI | [1 2] |      | SPC | RSHFT  |  BKSP  |
 
                         bindings = <
                                 &kp A &kp Z &kp E &kp R &kp T                   &kp Y &hm RALT U &kp I &hm RCTRL O &kp P   
                                 &kp Q &kp S &kp D &kp F &kp G                   &kp H &kp J &kp K &kp L &kp M
-                                &kp W &kp X &hm LCTRL C &kp V &hm LALT B        &kp N &mt COLON DOT &mt SEMI COMMA &mt EXCL QMARK &mt CARET APOS
-                                &kp RET &kp LGUI &to 1                          &kp SPACE &td_caps &kp BSPC
+                                &kp W &kp X &hm LCTRL C &kp V &hm LALT B        &kp N &mt COLON DOT &mt SEMI COMMA &mt EXCL QMARK &mt DQT APOS
+                                &kp RET &kp LGUI &td_layers                     &kp SPACE &td_caps &kp BSPC
                         >;
                 };
 
                 layer_1 {
-                // ---------------------------------      --------------------------------
-                // | ESC |  "  |  |  |   [   |  *  |      |  &  |  ]  |  ~   |  '  |  ¨  |
-                // | TAB |  é  |  #  |   (   |  /  |      |  \  |  )  |  @   |  `  |  ç  |
-                // | [3] |  è  |  ê  |   {   |  <  |      |  >  |  }  |  â   |  à  |  ù  |
-                //             | ENT | LSHFT | [2] |      | SPC | [0] | BKSP |
+                // -------------------------------      ----------------------------------
+                // | ESC |  "  |  |  |  [  |  *  |      |  &  |   ]   |  ~   |  '  |  ù  |
+                // | TAB |  é  |  #  |  (  |  /  |      |  \  |   )   |  @   |  `  |  $  |
+                // |     |  è  |  ê  |  {  |  <  |      |  >  |   }   |  â   |  à  |  ç  |
+                //             |     | GUI |     |      | [3] | RSHFT | BKSP |
 
                         bindings = <
-                                &kp ESC &kp DQT &kp PIPE &kp LBKT &kp STAR              &kp AMPS &kp RBKT &kp TILDE &kp APOS &dollar
-                                &kp TAB &fr_e_acute &kp HASH &kp LPAR &kp FSLH          &kp BSLH &kp RPAR &kp AT &kp GRAVE &fr_c_cedilla
-                                &to 3 &fr_e_grave &fr_e_circumflex &kp LBRC &kp LT      &kp GT &kp RBRC &fr_a_circumflex &fr_a_grave &fr_u_grave 
-                                &kp RET &kp LSHFT &to 2                                 &kp SPACE &to 0 &kp BSPC
+                                &kp ESC &kp DQT &kp PIPE &kp LBKT &kp STAR              &kp AMPS &kp RBKT &kp TILDE &kp APOS &fr_u_grave
+                                &kp TAB &fr_e_acute &kp HASH &kp LPAR &kp FSLH          &kp BSLH &kp RPAR &kp AT &kp GRAVE &dollar
+                                &none &fr_e_grave &fr_e_circumflex &kp LBRC &kp LT      &kp GT &kp RBRC &fr_a_circumflex &fr_a_grave &fr_c_cedilla 
+                                &none &kp LGUI &none                                    &mo 3 &td_caps &kp BSPC
                         >;
                 };
 
@@ -125,13 +131,13 @@ ZMK_UNICODE_SINGLE(dollar, N0, N0, N2, N4)
                 // | ESC | LUM- | LUM+ |  +   |  *  |      |  %  |  7  |  8   |  9  |     |
                 // | TAB | VOL- | VOL+ |  -   |  /  |      |  =  |  4  |  5   |  6  |     |
                 // |  #  | BSKP | FSKP | PLAY |  .  |      |  0  |  1  |  2   |  3  |     |
-                //              | ENT  | [1]  | [3] |      | SPC | [0] | BKSP |
+                //              |      |      |     |      | SPC |     | BKSP |
 
                         bindings = <
                                 &kp ESC &kp C_BRI_DN &kp C_BRI_UP &kp PLUS &kp STAR             &kp PRCNT &kp KP_N7 &kp KP_N8 &kp KP_N9 &none
                                 &kp TAB &kp C_VOL_DN &kp C_VOL_UP &kp MINUS &kp FSLH            &kp EQUAL &kp KP_N4 &kp KP_N5 &kp KP_N6 &none
                                 &kp HASH &mt C_PREV C_RW &mt C_NEXT C_FF &kp C_PP &kp DOT       &kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N3 &none
-                                &kp RET &to 1 &to 3                                             &kp SPACE &to 0 &kp BSPC
+                                &none &none &none                                               &kp SPACE &none &kp BSPC
                         >;
                 };
 
@@ -140,13 +146,13 @@ ZMK_UNICODE_SINGLE(dollar, N0, N0, N2, N4)
                 // | ESC | LSCRL | UMOUS | RSCRL | USCRL |      | BCK  | PTAB | NTAB | FWD |     |
                 // | TAB | LMOUS | DMOUS | RMOUS | DSCRL |      | LFT  | DOWN |  UP  | RGT |     |
                 // |     |       | CTRL  | SHIFT |  ALT  |      | MCLK | LCLK | RCLK |     | [4] |
-                //               |  ENT  |  GUI  |  [1]  |      | SPC  | [0]  | BKSP |
+                //               |       |       |       |      |      |      |      |
 
                         bindings = <
                                 &kp ESC &none &mmv MOVE_UP &none &none                                  &kp LG(LBKT) &kp LC(LS(TAB)) &kp RC(TAB) &kp LG(RBKT) &none
-                                &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none &kp LEFT &kp DOWN &kp UP &kp RIGHT &none
+                                &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none &kp LEFT    &kp DOWN &kp UP &kp RIGHT &none
                                 &none &none &kp LCTRL &kp LSHFT &kp LALT                                &mkp MCLK &mkp LCLK &mkp RCLK &none &to 4
-                                &kp RET &kp LGUI &to 1                                                  &kp SPACE &to 0 &kp BSPC
+                                &none &none &none                                                       &none &none &none
                         >;
                 };
 
@@ -155,13 +161,13 @@ ZMK_UNICODE_SINGLE(dollar, N0, N0, N2, N4)
                 // | BC_4 | BC_3 | BC_2 | BC_1 | BC_0 |      | BT_ACLR |        |        |     |     |
                 // |      |      |      |      |      |      | BT_CLR  | BT_NXT | BT_PRV |     |     |
                 // | BD_4 | BD_3 | BD_2 | BD_1 | BD_0 |      |         |        |        |     |     |
-                //               |      |      | [3]  |      |         |  [0]   |        |
+                //               |      |      |      |      |         |  [0]   |        |
 
                         bindings = <
                                 &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0        &bt BT_CLR_ALL &none &none &none &none
                                 &none &none &none &none &none                                           &bt BT_CLR &bt BT_NXT &bt BT_PRV &none &none
                                 &bt BT_DISC 4 &bt BT_DISC 3 &bt BT_DISC 2 &bt BT_DISC 1 &bt BT_DISC 0   &none &none &none &none &none
-                                &none &none &to 3                                                       &none &to 0 &none
+                                &none &none &none                                                       &none &to 0 &none
                         >;
                 };
         };
