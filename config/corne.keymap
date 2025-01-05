@@ -104,13 +104,13 @@ tta
                 // ------------------------------------      ----------------------------------------
                 // |  A  |  Z  |   E    |  R  |   T   |      |  Y  | U ALT  |   I    | O CTRL |  P  |
                 // |  Q  |  S  |   D    |  F  |   G   |      |  H  |   J    |   K    |   L    |  M  |
-                // |  W  |  X  | C CTRL |  V  | B ALT |      |  N [=] . :  [-] , ;  [_]  ? !  | ' " |
+                // |  W  |  X  | C CTRL |  V  | B ALT |      |  N [=] . :  [-] , ;  [_]  ? !  | ALT |
                 //             |  ENT   | GUI | [1 2] |      | SPC | RSHFT  |  BKSP  |
 
                         bindings = <
                                 &kp A &kp Z &kp E &kp R &kp T                   &kp Y &hm RALT U &kp I &hm RCTRL O &kp P   
                                 &kp Q &kp S &kp D &kp F &kp G                   &kp H &kp J &kp K &kp L &kp M
-                                &kp W &kp X &hm LCTRL C &kp V &hm LALT B        &kp N &mt COLON DOT &mt SEMI COMMA &mt EXCL QMARK &mt DQT APOS
+                                &kp W &kp X &hm LCTRL C &kp V &hm LALT B        &kp N &mt COLON DOT &mt SEMI COMMA &mt EXCL QMARK &kp RALT
                                 &kp RET &kp LGUI &td_layers                     &kp SPACE &td_caps &kp BSPC
                         >;
                 };
