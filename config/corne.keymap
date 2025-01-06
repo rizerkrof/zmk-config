@@ -147,15 +147,15 @@ tta
 
                 layer_3 {
                 // ---------------------------------------      ----------------------------------
-                // | ESC | LSCRL | UMOUS | RSCRL | USCRL |      | BCK  | PTAB | NTAB | FWD |     |
+                // | ESC | LSCRL | UMOUS | RSCRL | USCRL |      | BCK  | PTAB | NTAB | FWD | [4] |
                 // | TAB | LMOUS | DMOUS | RMOUS | DSCRL |      | LFT  | DOWN |  UP  | RGT |     |
-                // |     |       | CTRL  | SHIFT |  ALT  |      | MCLK | LCLK | RCLK |     | [4] |
+                // |     |       | CTRL  | SHIFT |  ALT  |      | MCLK | LCLK | RCLK |     |     |
                 //               |       |       |       |      |      |      |      |
 
                         bindings = <
-                                &kp ESC &msc SCRL_LEFT &mmv MOVE_UP &msc SCRL_RIGHT &msc SCRL_UP        &kp LG(LBKT) &kp LC(LS(TAB)) &kp RC(TAB) &kp LG(RBKT) &none
+                                &kp ESC &msc SCRL_LEFT &mmv MOVE_UP &msc SCRL_RIGHT &msc SCRL_UP        &kp LG(LBKT) &kp LC(LS(TAB)) &kp RC(TAB) &kp LG(RBKT) &to 4
                                 &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN    &kp LEFT &kp DOWN &kp UP &kp RIGHT &none
-                                &none &none &kp LCTRL &kp LSHFT &kp LALT                                &mkp MCLK &mkp LCLK &mkp RCLK &none &to 4
+                                &none &none &kp LCTRL &kp LSHFT &kp LALT                                &mkp MCLK &mkp LCLK &mkp RCLK &none &none
                                 &none &none &none                                                       &none &none &none
                         >;
                 };
